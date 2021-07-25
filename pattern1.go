@@ -27,13 +27,17 @@ func (f Cat) meow() string {
 	return f.name + " meow"
 }
 
+func win(s string) string {
+	return "Win " + s
+}
+
 func (f Batler) fight() string {
 	rand.Seed(time.Now().Unix())
 	switch rand.Intn(3) {
 	case 0:
-		return "Win " + f.Dog.name
+		return win(f.Dog.name)
 	case 1:
-		return "Win " + f.Cat.name
+		return win(f.Cat.name)
 	default:
 		return "No winer"
 	}
