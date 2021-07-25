@@ -16,7 +16,7 @@ func test() *customError {
 func main() {
 	err := test()
 	if err != nil {
-		fmt.Printf("%T", err)
+		fmt.Println(err)
 		return
 	}
 	println("ok") // а не это
