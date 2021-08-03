@@ -30,7 +30,7 @@ func UnpackingString(str string) (string, error) {
 
 	for _, char := range str {
 		if escapingFlag ||
-			(int(char) <= startNumeric || int(char) >= endNumeric) && int(char) != escaping {
+			(int(char) < startNumeric || int(char) > endNumeric) && int(char) != escaping {
 			out += printer(tmp, counter)
 			tmp = char
 			escapingFlag = false
@@ -50,6 +50,6 @@ func UnpackingString(str string) (string, error) {
 }
 
 func main() {
-	testString := "ab\\\\21"
+	testString := `q\410`
 	fmt.Println(UnpackingString(testString))
 }
